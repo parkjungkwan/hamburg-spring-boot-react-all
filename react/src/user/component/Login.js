@@ -1,6 +1,6 @@
 import React from 'react';
-import './style/LoginCss.css'
-const LoginForm = () => {
+import 'user/style/Login.css'
+const Login = () => {
     return (<> 
 <form action="action_page.php" method="post">
   <div class="imgcontainer">
@@ -23,4 +23,4 @@ const LoginForm = () => {
 </form>
      </>);
 }
-export default LoginForm;
+export default Login;

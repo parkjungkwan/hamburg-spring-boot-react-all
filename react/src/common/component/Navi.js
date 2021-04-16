@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
+import 'common/style/Common.css'
 const Navi = () => {
 
     return (<>
@@ -18,7 +19,7 @@ const Navi = () => {
                     <li><a href="#">WHO</a></li>
                     <li><a href="#">WHAT</a></li>
                     <li><a href="#">WHERE</a></li>
-                    <li><a href="#">Board</a></li>
+                    <li><Link to="/board/news">News</Link></li>
                 </ul>
                 </div>
             </div>

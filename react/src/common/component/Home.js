@@ -1,11 +1,11 @@
 import React from 'react'
-import '../style/Home.css'
-import '../style/Common.css'
-import Navi from './Navi'
-import Footer from './Footer'
-import WhereToFindMe from './WhereToFindMe'
-import WhatAmI from './WhatAmI'
-import WhoAmI from './WhoAmI'
+import 'common/style/Home.css'
+import 'common/style/Common.css'
+import Navi from 'common/component/Navi'
+import Footer from 'common/component/Footer'
+import WhereToFindMe from 'common/component/WhereToFindMe'
+import WhatAmI from 'common/component/WhatAmI'
+import WhoAmI from 'common/component/WhoAmI'
 const Home = () => {
 
     return(<>

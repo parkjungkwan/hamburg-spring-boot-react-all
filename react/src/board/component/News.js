@@ -2,7 +2,7 @@ import React from 'react'
 import ArticleList from 'article/component/ArticleList'
 import Navi from 'common/component/Navi'
 import Footer from 'common/component/Footer'
-const NewsBoard = () => {
+const News = () => {
     return (<>
     <Navi/>
     <ArticleList/>
@@ -10,4 +10,4 @@ const NewsBoard = () => {
     </>)
 }
 
-export default NewsBoard
+export default News

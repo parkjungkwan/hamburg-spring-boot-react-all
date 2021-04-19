@@ -4,12 +4,24 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;
-@Data @Component
+@Component
 public class ArticleDto {
-    @Column(name="article_id") private long articleId;
-    @Column(name="writer") private String writer;
-    @Column(name="email") private String email;
-    @Column(name="subject") private String subject;
-    @Column(name="content") private String content;
-    @Column(name="rdate") private String rdate;
+    private long articleId;
+    private String writer;
+    private String email;
+    private String subject;
+    private String content;
+    private String rdate;
+
+    public void setWriter(String email){
+        this.email = email;
+    }
+    public String getWriter(){
+        return this.email;
+    }
+
+    public String toString(){
+        return "email: "+this.email+"writer: "+this.writer;
+    }
+
 }

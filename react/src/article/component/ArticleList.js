@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../common/style/Common.css'
-import '../style/ArticleList.css'
+import 'common/style/Common.css'
+import 'article/style/ArticleList.css'
 const AtricleList = () => {
     return (
         <>

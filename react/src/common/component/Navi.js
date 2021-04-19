@@ -20,6 +20,7 @@ const Navi = () => {
                     <li><a href="#">WHAT</a></li>
                     <li><a href="#">WHERE</a></li>
                     <li><Link to="/board/news">News</Link></li>
+                    <li><Link to="/board/seoul-cctv">CCTV</Link></li>
                 </ul>
                 </div>
             </div>

@@ -12,4 +12,5 @@ public class UserDto {
     private String name;
     private String birth;
     private String email;
+    private int number;
 }

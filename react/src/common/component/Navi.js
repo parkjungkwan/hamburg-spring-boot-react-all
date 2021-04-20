@@ -21,8 +21,8 @@ const Navi = () => {
                     <li><a href="#">WHERE</a></li>
                     <li><Link to="/board/news">News</Link></li>
                     <li><Link to="/board/seoul-cctv">CCTV</Link></li>
-                    <li><Link to="/board/counter">Counter</Link></li>
-                    <li><Link to="/board/redux-counter">ReduxCounter</Link></li>
+                    <li><Link to="/counter/counter">Counter</Link></li>
+                    <li><Link to="/counter/redux-counter">ReduxCounter</Link></li>
                 </ul>
                 </div>
             </div>

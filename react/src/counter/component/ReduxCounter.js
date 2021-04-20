@@ -9,7 +9,7 @@ const ReduxCounter = React.memo(({ number, onIncrease, onDecrease}) =>{
             <button aria-label="+" onClick={onIncrease}>
                 +
             </button>
-            <span  style={{ color : 'black', width: 100}}>{number===0? 'A': number}</span>
+            <span  style={{ color : 'black', width: 100}}>{number}</span>
             <button aria-label="-" onClick={onDecrease}>
                 -
             </button>

@@ -7,8 +7,8 @@ import UserDetail from 'user/component/UserDetail'
 import 'App.css';
 import { Route } from 'react-router-dom'
 import { SeoulCCTV, News  } from 'board/index'
-import { Counter, CounterContainer, CounterSlice, CounterSliceContainer  } from 'counter/index'
-
+import {  Counter, CounterContainer,CounterSliceContainer  } from 'counter/index'
+ 
 const App = () => {
   return (
     <div className="App">
@@ -20,9 +20,8 @@ const App = () => {
       <Route exact path='/article/article-update' component={ ArticleUpdate } />
       <Route exact path='/board/news' component={ News } />
       <Route exact path='/board/seoul-cctv' component={ SeoulCCTV } />
+      <Route exact path='/counter/redux-counter' component={ Counter } />
       <Route exact path='/counter/counter' component={ Counter } />
-      <Route exact path='/counter/redux-counter' component={ CounterContainer } />
-      <Route exact path='/counter/counter' component={ CounterSlice } />
       <Route exact path='/counter/counter-slice' component={ CounterSliceContainer } />
       <Route exact path='/user/login' component={Login} />
       <Route exact path='/user/signUp' component={SignUp} />

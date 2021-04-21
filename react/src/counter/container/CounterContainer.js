@@ -2,7 +2,7 @@ import { ReduxCounter } from 'counter'
 import React, { useCallback } from 'react'
 import { Counter } from 'counter/index'
 import { useSelector , useDispatch } from 'react-redux'
-import { increase, decrease } from 'counter/reducer/Counter.reducer'
+import { increase, decrease } from 'counter/reducer/counter.reducer'
 
 const CounterContainer = () => {
     const number = useSelector(state => (state.counterReducer.number))

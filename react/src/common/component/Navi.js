@@ -24,6 +24,7 @@ const Navi = () => {
                     <li><Link to="/counter/counter">Counter</Link></li>
                     <li><Link to="/counter/redux-counter">ReduxCounter</Link></li>
                     <li><Link to="/counter/counter-slice">CounterSlice</Link></li>
+                    <li><Link to="/todos/app">Todo</Link></li>
                 </ul>
                 </div>
             </div>

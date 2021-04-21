@@ -4,7 +4,7 @@ const counterSlice = createSlice({
     name: 'counterSlice',
     initialState: {number: 0},
     reducers: {
-        increase(state, action){
+       increase(state, action){
             console.log('increase :: '+JSON.stringify(state.number))
             return {number: state.number + action.payload}},
         decrease(state, action){

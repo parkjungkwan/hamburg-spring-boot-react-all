@@ -9,7 +9,7 @@ const CounterSliceContainer = () => {
     return (<>
         <CounterSlice number={number} 
         onIncrease={()=> dispatch(increase(1))}
-        onDecrease={()=>dispatch(decrease(1))}/>
+        onDecrease={()=> dispatch(decrease(1))}/>
     </>)
 }
 

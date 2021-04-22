@@ -1,11 +1,12 @@
 import { Button } from 'bootstrap'
 import React, {useEffect, useState} from 'react' 
 import { useSelector } from 'react-redux'
-
+import {Navi} from 'common/index'
 const Counter = () => {
     const [count, setCount] = useState(0)
     useEffect(()=>{setCount(0)},[])
     return (<>
+    <Navi/>
     <h2 style={{ color : 'black'}}>카운터</h2>
     <div>
         <div>

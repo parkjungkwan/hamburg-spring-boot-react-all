@@ -1,39 +1,49 @@
 import React from 'react'
 import 'todos/style/TodoStyle.css'
+import {Navi} from 'common/index'
+import { AddTodo, Todos, CompletedTodos } from 'todos/index'
 const TodoApp = () => {
-    return (<div className="container todo">
-    <p>
-        <label htmlFor="new-task">Add Item</label>
-        <input id="new-task" type="text" />
-        <button>Add</button>
-    </p>
-    <h3>Todo</h3>
-    <ul id="incomplete-tasks">
-        <li>
-            <input type="checkbox" />
-            <label>Pay Bills</label>
-            <input type="text" />
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-        </li>
-        <li class="editMode">
-            <input type="checkbox" />
-            <label>Go Shopping</label>
-            <input type="text" value="Go Shopping" />
-            <button className="edit">Edit</button>
-            <button className="delete">Delete</button>
-        </li>
-    </ul>
-    <h3>Completed</h3>
-    <ul id="completed-tasks">
-        <li>
-            <input type="checkbox" checked="" />
-            <label>See the Doctor</label>
-            <input type="text" />
-            <button className="edit">Edit</button>
-            <button className="delete">Delete</button>
-        </li>
-    </ul>
+    //Problem: user interaction doesn't provide desired results
+//Solution: add interactivity so the user can manage daily tasks.
+
+var taskInput = document.getElementById("new-task"); // new-task
+var addButton = document.getElementsByTagName("button")[0];//first button
+var incompleteTasksHolder = document.getElementById("incomplete-tasks"); //incomplete-tasks
+var completedTasksHolder = document.getElementById("completed-tasks"); //completed-tasks
+
+//New Task List item
+
+const createNewTaskElement = (taskString) => {
+
+  const listItem = document.createElement("li");
+  const checkBox = document.createElement("input");
+  const label = document.createElement("label");
+  const editInput = document.createElement("input");
+  const editButton = document.createElement("button");
+  const deleteButton = document.createElement("button");
+  checkBox.type = "checkBox";
+  editInput.type = "text";
+  editButton.innerText = "Edit";
+  editButton.className = "edit";
+  deleteButton.innerText = "Delete";
+  deleteButton.className = "delete";
+  label.innerText = taskString;
+  listItem.appendChild(checkBox);
+  listItem.appendChild(label);
+  listItem.appendChild(editInput);
+  listItem.appendChild(editButton);
+  listItem.appendChild(deleteButton);
+    return listItem;
+}
+
+
+
+
+    return (<div >
+        <Navi/>
+   <AddTodo/>
+    <Todos/>
+  
 </div>)
 }
 export default TodoApp

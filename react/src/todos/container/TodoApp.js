@@ -3,19 +3,21 @@ import { Navi } from 'common/index'
 import { useDispatch, useSelector } from 'react-redux'
 import { Todos, CompletedTodos } from 'todos/index'
 import React, { useCallback } from 'react'
-import { addTodo } from 'todos/reducer/todo.reducer'
+import { addTodo, delTodo, delTodos , toggleTodos} from 'todos/reducer/todo.reducer'
 import { AddTodo } from 'todos/index'
 
 const TodoApp = () => {
     
-    const todos = useSelector(state => (state.todoReducer))
+    const todos = useSelector(state => (state.todos))
   
 
     return (<div >
         <Navi/>
         <div style={{marginTop:100}}>
    <AddTodo addTodo={addTodo} />
-    <Todos todos={todos}/>
+    <Todos todos={todos} delTodo={delTodo} 
+    delTodos={delTodos}
+    toggleTodos={toggleTodos}/>
     </div>
 </div>)
 }

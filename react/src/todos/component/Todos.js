@@ -1,11 +1,17 @@
 import React from 'react'
 import { Todo } from 'todos/index'
-const Todos = ({todos}) => {
-    
+import { useDispatch } from 'react-redux'
+const Todos = ({todos, delTodo, delTodos }) => {
+    const dispatch = useDispatch()
+    const onClick = () => {
+        
+        dispatch(delTodos(0))
+    }    
     return (<>
-    <h3>할일 목록</h3>
+    <h3>할일 목록 </h3>
+    <button style={{width:200, backgroundColor:'red'}} onClick={ onClick }>전체삭제</button>
     <div>
-        {todos.map(todo => (<Todo key={todo.id} todo={todo}/>))}
+        {todos.map(todo => (<Todo key={todo.id} todo={todo} delTodo={delTodo}/>))}
     </div>
     </>)
 }

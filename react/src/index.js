@@ -8,12 +8,12 @@ import { Provider } from 'react-redux'
 import {createStore, combineReducers} from 'redux'
 //import counterReducer from 'counter/reducer/counter.reducer'
 import counterSlice from 'counter/reducer/counter.slice'
-import todoReducer from 'todos/reducer/todo.reducer'
+import todos from 'todos/reducer/todo.reducer'
 
 import { configureStore } from '@reduxjs/toolkit';
 // import store from 'app/store'
 
-const rootReducer = combineReducers({counterSlice, todoReducer})
+const rootReducer = combineReducers({counterSlice, todos})
 // const store = createStore(rootReducer) 바닐라 리덕스 
 const store = configureStore({reducer: rootReducer})
 

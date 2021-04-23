@@ -3,7 +3,7 @@ import { Navi } from 'common/index'
 import { useDispatch, useSelector } from 'react-redux'
 import { Todos, CompletedTodos } from 'todos/index'
 import React, { useCallback } from 'react'
-import { addTodo, delTodo, delTodos , toggleTodos} from 'todos/reducer/todo.reducer'
+import { addTodo, delTodo, delTodos , toggleTodo} from 'todos/reducer/todo.reducer'
 import { AddTodo } from 'todos/index'
 
 const TodoApp = () => {
@@ -17,7 +17,7 @@ const TodoApp = () => {
    <AddTodo addTodo={addTodo} />
     <Todos todos={todos} delTodo={delTodo} 
     delTodos={delTodos}
-    toggleTodos={toggleTodos}/>
+    toggleTodo={toggleTodo}/>
     </div>
 </div>)
 }

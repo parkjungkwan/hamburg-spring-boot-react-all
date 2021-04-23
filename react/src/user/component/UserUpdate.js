@@ -1,8 +1,8 @@
-//import '../component/signupForm.css';
-import React, { useCallback, useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const SignUp = () => {
+const UserUpdate = () => {
     const [inputs, setInputs] = useState({
         username: '',
         password: '',
@@ -26,19 +26,14 @@ const SignUp = () => {
 
     const handleSubmit = useCallback(
         (e) => {
-            alert('회원가입 버튼누름');
-
             e.preventDefault();
-            console.log('작동');
-
-            alert('ID : ' + username);
-            alert('비밀번호 : ' + password);
-            alert('email : ' + userEmail);
-            alert('주소 : ' + userAddress);
-            alert('핸드폰 번호 : ' + userPhoneNumber);
+            console.log('handleSubmit 작동');
+            alert('handleSubmit 작동');
+            alert('inputs.username = ' + inputs.username);
+            alert('username = ' + username);
 
             axios
-                .post('http://localhost:8080/users/insert', {
+                .put(`http://localhost:8080/users/${localStorage.getItem('select')}`, {
                     username,
                     password,
                     userEmail,
@@ -55,9 +50,8 @@ const SignUp = () => {
 
     return (
         <form onSubmit={handleSubmit} method="post">
-            <div className="signUpContainer">
-                <h1>회원가입</h1>
-
+            <div className="container">
+                <h1>마이 페이지</h1>
                 <hr />
 
                 <label htmlFor="username">
@@ -86,15 +80,23 @@ const SignUp = () => {
                 <input type="text" onChange={handleChange} placeholder="UserPhoneNumber" name="userPhoneNumber" value={userPhoneNumber} required />
 
                 <div className="clearfix">
-                    <button type="button" className="cancelButton">
-                        Cancel
+                    <button type="button" className="cancelbtn">
+                        <Link to="/">홈으로</Link>
                     </button>
-                    <button type="submit" className="signupButton">
-                        회원가입 버튼
+                    <button type="submit" className="updatebtn">
+                        <Link to={`/UserUpdate/${username}`}>정보 수정</Link>
+                    </button>
+                    <button type="button" className="deletebtn">
+                        회원 탈퇴
                     </button>
                 </div>
             </div>
         </form>
     );
 };
-export default SignUp;
+export default UserUpdate;
+
+// 로그인 되면 홈으로 이동
+// 홈에서 마이페이지로 이동
+// 마이페이지에서 회원 수정 및 탈퇴
+// 로그아웃은 홈페이지에서

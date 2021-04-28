@@ -56,7 +56,17 @@ public class DummyGenerator {
         List<String> id = Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split(""));
         shuffle(id);
         id.subList(0, 4);
-        return id.get(0);
+        StringBuffer sb = new StringBuffer();
+        for(int i=0; i <5; i++){
+            sb.append(id.get(i));
+        }
+        /*
+        *  sb.insert(index, "<입력값>")
+        *  sb.replace(index, sb.length(), "<대체값>")
+        *  sb.delete(start-index, end-index)
+        *  sb.deleteChatAt(index)
+        * */
+        return sb.toString();
     }
 
     public String makeEmail() {

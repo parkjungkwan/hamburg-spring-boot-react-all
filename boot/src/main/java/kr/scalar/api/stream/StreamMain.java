@@ -1,9 +1,6 @@
 package kr.scalar.api.stream;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -53,32 +50,36 @@ class Student implements Comparable<Student>{
     public void setScore(int score) {
         this.score = score;
     }
+
     @Override
     public int compareTo(Student o) {
-        return o.getScore() - this.getScore();
+        return o.getScore() - score;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
-                ", grade=" + grade +
-                ", score=" + score +
+                "username='" + username + '\'' +
+                ", name= '" + name + '\'' +
+                ", grade= " + grade +
+                ", score= " + score +
                 '}';
     }
 }
+
 
 public class StreamMain {
     public static void main(String... args) {
         Scanner scanner = new Scanner(System.in);
         while(true){
-            System.out.println("메뉴: 0.EXIT 1.학년오름차순 2.성적내림차순 3.이름오름차순 4.ID오름차순");
+            System.out.println("메뉴: 0.EXIT 1.학년오름차순 2. 학년별 성적내림차순  3.전학년 성적내림차순 4.이름오름차순 5.ID오름차순");
             switch (scanner.nextInt()){
                 case 0: return;
                 case 1: ascGrade().forEach(System.out::println); break;
-                case 2: descScore().forEach(System.out::println); break;
-                case 3: ascName().forEach(System.out::println); break;
-                case 4: ascUsername().forEach(System.out::println); break;
+                case 2: descGrade().forEach(System.out::println); break;
+                case 3: descScore().forEach(System.out::println); break;
+                case 4: ascName().forEach(System.out::println); break;
+                case 5: ascUsername().forEach(System.out::println); break;
             }
         }
     }
@@ -96,18 +97,29 @@ public class StreamMain {
     }
 
     public static Stream<Student> ascGrade(){
-        return makeStream().sorted(Comparator.comparing((Student::getGrade))
-                .thenComparing(Comparator.naturalOrder()));
+        return makeStream()
+                .sorted(Comparator.comparing(Student::getGrade) // Comparator.comparing(String s)
+                                    .thenComparing(Comparator.naturalOrder()));  // Comparable compareTo(Object o)
+    }
+    public static Stream<Student> descGrade(){
+        return makeStream()
+                .sorted(Comparator.comparing(Student::getGrade).reversed() // Comparator.comparing(String s)
+                        .thenComparing(Comparator.naturalOrder()));  // Comparable compareTo(Object o)
     }
 
     public static Stream<Student> descScore(){
-        return null;
+        return makeStream()
+                .sorted(Comparator.naturalOrder()); // Comparable compareTo(Object o)
     }
     public static Stream<Student> ascName(){
-        return null;
+
+        return makeStream()
+                .sorted(Comparator.comparing(Student::getName)
+                                    .thenComparing(Comparator.naturalOrder()));
     }
     public static Stream<Student> ascUsername(){
-        return null;
-    }
 
+        return makeStream()
+                .sorted(Comparator.comparing(Student::getUsername));
+    }
 }

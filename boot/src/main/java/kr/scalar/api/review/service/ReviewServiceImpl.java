@@ -1,6 +1,6 @@
 package kr.scalar.api.review.service;
 
-import kr.scalar.api.common.AbstractService;
+import kr.scalar.api.common.service.AbstractService;
 import kr.scalar.api.review.domain.Review;
 import kr.scalar.api.review.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;

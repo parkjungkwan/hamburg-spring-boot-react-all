@@ -1,4 +1,4 @@
-package kr.scalar.api.common;
+package kr.scalar.api.common.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;

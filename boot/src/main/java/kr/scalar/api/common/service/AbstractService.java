@@ -1,4 +1,4 @@
-package kr.scalar.api.common;
+package kr.scalar.api.common.service;
 
 import org.springframework.http.ResponseEntity;
 

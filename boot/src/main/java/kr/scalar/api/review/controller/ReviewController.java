@@ -1,8 +1,7 @@
 package kr.scalar.api.review.controller;
 
-import kr.scalar.api.common.AbstractController;
+import kr.scalar.api.common.controller.AbstractController;
 import kr.scalar.api.review.domain.Review;
-import kr.scalar.api.review.service.ReviewService;
 import kr.scalar.api.review.service.ReviewServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

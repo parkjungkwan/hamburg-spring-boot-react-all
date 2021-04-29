@@ -4,17 +4,17 @@ import kr.scalar.api.news.domain.News;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 public interface NewsService {
-    public Document connectUrl(String url) throws Exception;
-    public List<News> newsFindAll();
-    //public List<HomeNews> homeNewsFindAll();
-    public void crawlingHome() throws Exception;
-    public void mainCrawler(String category) throws Exception;
-    public void daumNews(Elements elements, String category);
-    public Optional<News> findByNewsNo(String newsNo);
-    public void optionalInit(String newsNo);
+    Document connectUrl(String url) throws IOException;
+    List<News> newsFindAll();
+    //List<HomeNews> homeNewsFindAll();
+    void crawlingHome();
+    Long saveAll(String category) throws IOException;
+    Optional<News> findByNewsNo(String newsNo);
+    void optionalInit(String newsNo);
 //    public ClickedNews crawlingOne(String newsNo);
 }

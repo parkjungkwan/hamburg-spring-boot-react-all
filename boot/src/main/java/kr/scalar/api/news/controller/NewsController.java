@@ -28,19 +28,19 @@ public class NewsController {
         System.out.print("****************** 카테고리 : "+crawler.toString());
         return ResponseEntity.ok(service.saveAll(crawler));
     }
-    @PostMapping
+    @PostMapping("")
     public ResponseEntity<Long> post(@RequestBody News news){
         return ResponseEntity.ok(null);
     }
-    @GetMapping
+    @GetMapping("")
     public ResponseEntity<Page<News>> retrieve(final Pageable pageable){
         return ResponseEntity.ok(service.retrieve(pageable));
     }
-    @PutMapping
+    @PutMapping("")
     public ResponseEntity<Long> update(@RequestBody News news){
         return ResponseEntity.ok(null);
     }
-    @DeleteMapping
+    @DeleteMapping("")
     public ResponseEntity<Long> delete(@RequestBody News news){
         return ResponseEntity.ok(null);
     }

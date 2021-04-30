@@ -11,10 +11,13 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import lombok.extern.java.Log;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Log
@@ -34,12 +37,6 @@ public class NewsServiceImpl extends AbstractService<News> implements NewsServic
     }
 
     @Override
-    public Optional<News> findByNewsNo(String newsNo) {
-        Optional.ofNullable(repository.findByNewsNo(newsNo)).ifPresent(System.out::println);
-        return Optional.ofNullable(repository.findByNewsNo(newsNo));
-    }
-
-    @Override
     public void optionalInit(String newsNo) {
         Optional<String> optVal = Optional.empty(); // Optional Initializer
     }
@@ -49,19 +46,26 @@ public class NewsServiceImpl extends AbstractService<News> implements NewsServic
         return (repository.save(news) != null) ? 1L : 0L;
     }
     @Override
-    public Long saveAll(Crawler crawler) throws IOException {
+    public List<News> saveAll(Crawler crawler) throws IOException {
         Document document = CrawlerServiceImpl.connectUrl(crawler.getUrl()); // "https://news.daum.net/society"
         repository.deleteAll();
         Elements elements = document.select(crawler.getCssQuery());
         // "div.item_mainnews>div.cont_thumb>strong.tit_thumb>a"
+        List<News> newslist = new ArrayList<>();
         for (int i = 0; i < elements.size(); i++) {
             News news = new News();
             news.setTitle(elements.get(i).text());
             news.setAddress(elements.get(i).attr("href"));
             news.setCategory(crawler.getCategory());
+            newslist.add(news);
             repository.save(news);
         }
-        return repository.count() > 0L ? 1L : 0L;
+        return newslist;
+    }
+
+    @Override
+    public Page<News> retrieve(final Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
@@ -81,8 +85,9 @@ public class NewsServiceImpl extends AbstractService<News> implements NewsServic
 
     @Override
     public Optional<News> getOne(long id) {
-        return Optional.of(repository.getOne(id));
+        return Optional.empty();
     }
+
 
     @Override
     public Long delete(News news) {

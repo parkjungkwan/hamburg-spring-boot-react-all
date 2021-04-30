@@ -33,8 +33,8 @@ public class NewsController {
         return ResponseEntity.ok(null);
     }
     @GetMapping("")
-    public ResponseEntity<Page<News>> retrieve(final Pageable pageable){
-        return ResponseEntity.ok(service.retrieve(pageable));
+    public ResponseEntity<Page<News>> findAll(final Pageable pageable){
+        return ResponseEntity.ok(service.findAll(pageable));
     }
     @PutMapping("")
     public ResponseEntity<Long> update(@RequestBody News news){

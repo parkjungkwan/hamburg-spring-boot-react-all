@@ -26,20 +26,6 @@ public class NewsServiceImpl extends AbstractService<News> implements NewsServic
 
     private final NewsRepository repository;
 
-    @Override
-    public List<News> newsFindAll() {
-        return null;
-    }
-
-    @Override
-    public void crawlingHome()  {
-
-    }
-
-    @Override
-    public void optionalInit(String newsNo) {
-        Optional<String> optVal = Optional.empty(); // Optional Initializer
-    }
 
     @Override
     public Long save(News news) {
@@ -64,7 +50,7 @@ public class NewsServiceImpl extends AbstractService<News> implements NewsServic
     }
 
     @Override
-    public Page<News> retrieve(final Pageable pageable) {
+    public Page<News> findAll(final Pageable pageable) {
         return repository.findAll(pageable);
     }
 
@@ -73,10 +59,7 @@ public class NewsServiceImpl extends AbstractService<News> implements NewsServic
         return repository.findById(id);
     }
 
-    @Override
-    public List<News> findAll() {
-        return repository.findAll();
-    }
+
 
     @Override
     public Long count() {

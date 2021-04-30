@@ -1,6 +1,9 @@
 package kr.scalar.api.news.service;
 
+import kr.scalar.api.common.domain.Crawler;
 import kr.scalar.api.common.service.AbstractService;
+import kr.scalar.api.common.service.CrawlerService;
+import kr.scalar.api.common.service.CrawlerServiceImpl;
 import kr.scalar.api.news.domain.News;
 import kr.scalar.api.news.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,19 +22,6 @@ import java.util.Optional;
 public class NewsServiceImpl extends AbstractService<News> implements NewsService {
 
     private final NewsRepository repository;
-
-    @Override
-    public Document connectUrl(String url) throws IOException {
-        return Jsoup
-                .connect(url)
-                .method(Connection.Method.GET)
-                .userAgent("Mozilla/5.0 (X11; Linux x86_64; rv:10.0) " +
-                        "Gecko/20100101 Firefox/10.0 " +
-                        "AppleWebKit/537.36 (KHTML, like Gecko) " +
-                        "Chrome/51.0.2704.106 Safari/537.36")
-                .execute()
-                .parse();
-    }
 
     @Override
     public List<News> newsFindAll() {
@@ -59,22 +49,19 @@ public class NewsServiceImpl extends AbstractService<News> implements NewsServic
         return (repository.save(news) != null) ? 1L : 0L;
     }
     @Override
-    public Long saveAll(String category) throws IOException {
-        Document document = connectUrl("https://news.daum.net/" + category);
+    public Long saveAll(Crawler crawler) throws IOException {
+        Document document = CrawlerServiceImpl.connectUrl(crawler.getUrl()); // "https://news.daum.net/society"
         repository.deleteAll();
-        Elements elements = document.select("div.item_mainnews>div.cont_thumb>strong.tit_thumb>a");
-        int count = 0;
+        Elements elements = document.select(crawler.getCssQuery());
+        // "div.item_mainnews>div.cont_thumb>strong.tit_thumb>a"
         for (int i = 0; i < elements.size(); i++) {
             News news = new News();
             news.setTitle(elements.get(i).text());
             news.setAddress(elements.get(i).attr("href"));
-            news.setCategory(category);
-            // repository.save(news);
-            count++;
-            System.out.println("****************** News 정보: "+ news.toString());
+            news.setCategory(crawler.getCategory());
+            repository.save(news);
         }
-        System.out.println("****************** 크롤링 카운트: "+ count);
-        return 0L;
+        return repository.count() > 0L ? 1L : 0L;
     }
 
     @Override

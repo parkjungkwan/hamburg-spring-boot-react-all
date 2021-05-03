@@ -12,6 +12,6 @@ public class Exhibition {
     @Column(name = "exhibition_id") private long exhibitionId;
 
     @ManyToOne
-    @JoinColumn("hall_id")
+    @JoinColumn(columnDefinition = "hall_id")
     Hall hall;
 }

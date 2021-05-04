@@ -16,6 +16,8 @@ public class UserDto {
     @ApiModelProperty(position = 3)
     private String name;
     @ApiModelProperty(position = 4)
+    private String token;
+    @ApiModelProperty(position = 5)
     private List<Role> roles;
 
 

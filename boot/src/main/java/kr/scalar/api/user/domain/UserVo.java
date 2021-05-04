@@ -1,10 +1,12 @@
 package kr.scalar.api.user.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-
+@Data
 @Entity @Table(name="users")
 public class UserVo {
     @Id

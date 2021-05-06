@@ -3,6 +3,7 @@ import 'user/style/Login.css'
 const Login = () => {
     return (<> 
 <form action="action_page.php" method="post">
+<h1>로그인</h1>
   <div class="imgcontainer">
     <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="avatar"/>
   </div>

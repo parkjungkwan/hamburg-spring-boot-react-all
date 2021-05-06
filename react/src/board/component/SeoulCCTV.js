@@ -7,6 +7,7 @@ import axios from 'axios'
 
 const SeoulCCTV = () => {
   const [items, setItems] = useState([])
+  
 
   useEffect(()=>{
     axios.get(`/data/SeoulCCTV.json`)

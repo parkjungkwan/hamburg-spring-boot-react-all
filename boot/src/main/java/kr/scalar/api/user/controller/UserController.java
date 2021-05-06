@@ -38,9 +38,10 @@ public class UserController {
     }
 
 
-    @GetMapping("")
-    public ResponseEntity<List<UserVo>> fetch(@RequestBody UserVo user){
-        return ResponseEntity.ok(null);
+    @GetMapping("/fetch")
+    public ResponseEntity<List<UserVo>> fetch(){
+
+        return ResponseEntity.ok(userService.findAll());
     }
     @PutMapping("")
     public ResponseEntity<Long> update(@RequestBody UserVo user){

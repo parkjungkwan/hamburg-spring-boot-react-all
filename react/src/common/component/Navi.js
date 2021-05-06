@@ -16,9 +16,9 @@ const Navi = () => {
                 </div>
                 <div className="collapse navbar-collapse" id="myNavbar">
                 <ul className="nav navbar-nav navbar-right">
-                    <li><a href="#">WHO</a></li>
-                    <li><a href="#">WHAT</a></li>
-                    <li><a href="#">WHERE</a></li>
+                    <li><Link to="/user/users">Users</Link></li>
+                    <li><Link to="/user/signup">Signup</Link></li>
+                    <li><Link to="/user/login">Login</Link></li>
                     <li><Link to="/board/news">News</Link></li>
                     <li><Link to="/board/seoul-cctv">CCTV</Link></li>
                     <li><Link to="/counter/counter">Counter</Link></li>

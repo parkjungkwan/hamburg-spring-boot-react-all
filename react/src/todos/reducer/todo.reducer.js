@@ -1,4 +1,3 @@
-import { Satellite } from '@material-ui/icons'
 import { createSlice } from '@reduxjs/toolkit'
 import uuid from 'uuid/v4'
 const initialState =[

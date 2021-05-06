@@ -52,6 +52,11 @@ public class UserServiceImpl implements UserService{
         }catch (Exception e){
             throw new SecurityRuntimeException("Invalid Username / Password supplied", HttpStatus.UNPROCESSABLE_ENTITY);
         }
+    }
 
+    @Override
+    public List<UserVo> findAll() {
+        // repo.findAll().stream().map(user -> modelMapper.map(user, UserDTO.class)).collect(Collectors.toList())
+        return userRepository.findAll();
     }
 }

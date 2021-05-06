@@ -1,0 +1,64 @@
+{
+  "users": [
+    {
+        "userId": 1,
+        "username": "a10",
+        "password": "a10",
+        "email": "a10@nate.com",
+        "name": "김투투",
+        "roles": [
+            "USER"
+        ]
+    },
+    {
+        "userId": 2,
+        "username": "a1",
+        "password": "a1",
+        "email": "a1@nate.com",
+        "name": "박재민",
+        "roles": [
+            "USER"
+        ]
+    },
+    {
+        "userId": 3,
+        "username": "a2",
+        "password": "a2",
+        "email": "a2@nate.com",
+        "name": "김재민",
+        "roles": [
+            "USER"
+        ]
+    },
+    {
+        "userId": 4,
+        "username": "a3",
+        "password": "a3",
+        "email": "a3@nate.com",
+        "name": "홍길동",
+        "roles": [
+            "USER"
+        ]
+    },
+    {
+        "userId": 5,
+        "username": "a4",
+        "password": "a4",
+        "email": "a4@nate.com",
+        "name": "김길동",
+        "roles": [
+            "USER"
+        ]
+    }
+],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

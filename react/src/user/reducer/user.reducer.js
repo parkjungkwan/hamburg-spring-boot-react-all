@@ -1,11 +1,14 @@
 import axios from 'axios'
-import userService from '../service/user.service'
+import { getList } from '../service/user.service'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+
+
+
 
 export const getUserList = createAsyncThunk(
   "users/findAll", 
   async () => {
-  const response = await axios.get("http://localhost:8080/users")
+  const response = await getList()
   return response.data
 })
 

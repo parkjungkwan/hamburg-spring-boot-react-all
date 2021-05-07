@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const API_URL = `/data/users.json`
+export const getList = () => {
+    alert(`2 서비스 내부`)
+    return axios.get("http://localhost:8000/users")}
 
-const userList = () => {
-    axios.get(API_URL, { userId, username, password, email, name, roles})
-}
+

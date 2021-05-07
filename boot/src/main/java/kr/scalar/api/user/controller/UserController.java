@@ -38,8 +38,8 @@ public class UserController {
     }
 
 
-    @GetMapping("/fetch")
-    public ResponseEntity<List<UserVo>> fetch(){
+    @GetMapping("/findAll")
+    public ResponseEntity<List<UserVo>> findAll(){
 
         return ResponseEntity.ok(userService.findAll());
     }

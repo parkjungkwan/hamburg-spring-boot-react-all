@@ -10,6 +10,6 @@ import users from 'user/reducer/user.reducer'
 
   const rootReducer = combineReducers({counterSlice, todos, users})
   export default configureStore({
-    rootReducer,
+    reducer: rootReducer,
     middleware: [...getDefaultMiddleware(), logger],
   });

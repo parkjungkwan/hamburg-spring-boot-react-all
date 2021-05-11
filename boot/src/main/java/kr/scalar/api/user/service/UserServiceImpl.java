@@ -13,7 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
-import javax.naming.AuthenticationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,11 +42,15 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserDto signin(UserVo user) {
         try{
-            UserVo loginedUser = userRepository.signin(user.getUsername(), user.getPassword());
             UserDto userDto = modelMapper.map(user,UserDto.class);
-            String token = provider.createToken(user.getUsername(), userRepository.findByUsername(user.getUsername()).getRoles());
-            log.info(" :::::::::: ISSUED TOKEN :::::::::: ",token);
-            userDto.setToken(token);
+            userDto.setToken(
+                    (passwordEncoder.matches(user.getPassword(),
+                                             userRepository.findByUsername(user.getUsername()).get().getPassword()))
+                            ?
+                    provider.createToken(user.getUsername(),
+                                         userRepository.findByUsername(user.getUsername()).get().getRoles())
+                    : "WRONG_PASSWORD"
+            );
             return userDto;
         }catch (Exception e){
             throw new SecurityRuntimeException("Invalid Username / Password supplied", HttpStatus.UNPROCESSABLE_ENTITY);

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @Log
 @Api(tags="users") @RequiredArgsConstructor
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController @RequestMapping("/users")
 public class UserController {
 
